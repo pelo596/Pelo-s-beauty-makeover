@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf7f2">
+  <meta name="description" content="Your everyday escape for glowing-skin makeup tutorials, frontal styling, and effortless vacation glam.">
+  <title>Pelo's Beauty Makeover — Your daily getaway</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: "#fbf7f2",
+            ink: "#302821",
+            rose: "#c58c79",
+            leaf: "#68755d",
+            blush: "#f2e2d8"
+          },
+          fontFamily: {
+            display: ["Playfair Display", "Georgia", "serif"],
+            sans: ["DM Sans", "Arial", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root { --accent: #c58c79; --accent-soft: #f2e2d8; --mood-ink: #744f43; }
+    html { scroll-behavior: smooth; }
+    body { background: #fbf7f2; color: #302821; }
+    .mood-surface { background: linear-gradient(135deg, var(--accent-soft), #fbf7f2 74%); }
+    .mood-button[aria-pressed="true"] { border-color: var(--accent); background: white; box-shadow: 0 8px 24px #4a342014; }
+    .mood-dot { background: var(--accent); }
+    .glass { background: rgba(255,255,255,.76); backdrop-filter: blur(16px); }
+    .soft-shadow { box-shadow: 0 18px 55px rgba(67,47,35,.08); }
+    .guide-step[aria-expanded="true"] .step-content { display: block; }
+    .guide-step[aria-expanded="true"] .step-chevron { transform: rotate(180deg); }
+    .guide-step[aria-expanded="true"] .step-number { background: var(--accent); color: white; }
+    .step-content { display: none; }
+    .nav-link { transition: color .2s ease; }
+    .nav-link:hover { color: var(--accent); }
+    .fade-in { animation: rise .45s ease both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+  </style>
+</head>
+<body class="font-sans antialiased">
+  <div class="bg-ink px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[.24em] text-white sm:text-[11px]">
+    A little sunshine, wherever you are <span class="mx-2 text-rose">✳</span> Your daily dose of feel-good glam
+  </div>
+
+  <header class="sticky top-0 z-40 border-b border-black/5 bg-sand/90 backdrop-blur-xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-10" aria-label="Main navigation">
+      <a href="#home" class="font-display text-[25px] font-semibold tracking-tight">Pelo's <span class="font-normal text-rose">Beauty</span> Makeover<span class="text-rose">.</span></a>
+      <div id="desktop-nav" class="hidden items-center gap-8 text-[13px] font-medium md:flex">
+        <a class="nav-link" href="#makeup">Makeup</a>
+        <a class="nav-link" href="#hair">The Crown &amp; Melt</a>
+        <a class="nav-link" href="#journal">Journal</a>
+        <a class="nav-link" href="#routine">Routine builder</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="search-open" class="grid h-10 w-10 place-items-center rounded-full transition hover:bg-white" aria-label="Search guides"><i class="fa-solid fa-magnifying-glass text-sm"></i></button>
+        <a href="#makeup" class="hidden rounded-full bg-ink px-5 py-3 text-[11px] font-semibold uppercase tracking-[.12em] text-white transition hover:bg-rose sm:inline-flex">Find your glow <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        <button id="menu-toggle" class="grid h-10 w-10 place-items-center rounded-full hover:bg-white md:hidden" aria-label="Open navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+    <div id="mobile-nav" class="hidden border-t border-black/5 bg-sand px-6 py-4 md:hidden">
+      <div class="flex flex-col gap-4 text-sm"><a href="#makeup">Makeup</a><a href="#hair">The Crown &amp; Melt</a><a href="#journal">Journal</a><a href="#routine">Routine builder</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="mx-auto grid max-w-7xl items-center gap-10 px-5 pb-14 pt-10 md:grid-cols-[.92fr_1.08fr] md:pb-20 md:pt-14 lg:gap-16 lg:px-10">
+      <div class="order-2 md:order-1">
+        <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-rose/20 bg-white/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[.2em] text-leaf"><span class="h-2 w-2 rounded-full bg-leaf"></span> Your beauty, on island time</div>
+        <h1 class="max-w-xl font-display text-[3.35rem] leading-[1.04] tracking-[-.045em] sm:text-6xl lg:text-[4.65rem]">Turn every day into a <span class="italic text-rose">vacation.</span></h1>
+        <p class="mt-6 max-w-md text-[15px] leading-7 text-ink/65">Glowy makeup, hair that moves with you, and little rituals that feel like a getaway. Your next good-hair, good-skin day starts here.</p>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="#makeup" class="rounded-full bg-ink px-6 py-4 text-[11px] font-semibold uppercase tracking-[.14em] text-white shadow-lg shadow-ink/10 transition hover:-translate-y-0.5 hover:bg-rose">Explore the glam guides <i class="fa-solid fa-arrow-right ml-3"></i></a>
+          <a href="#routine" class="inline-flex items-center gap-2 text-xs font-semibold"><span class="grid h-9 w-9 place-items-center rounded-full border border-ink/15"><i class="fa-solid fa-sparkles text-rose"></i></span> Build my routine</a>
+        </div>
+        <div class="mt-9 flex items-center gap-3 text-xs text-ink/55"><div class="flex -space-x-2"><img class="h-8 w-8 rounded-full border-2 border-sand object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=80&amp;q=80" alt=""><img class="h-8 w-8 rounded-full border-2 border-sand object-cover" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=80&amp;q=80" alt=""><img class="h-8 w-8 rounded-full border-2 border-sand object-cover" src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&amp;fit=crop&amp;w=80&amp;q=80" alt=""></div><span><strong class="text-ink">12k+</strong> beauties found their glow</span><span class="text-rose">★★★★★</span></div>
+      </div>
+      <div class="relative order-1 min-h-[390px] md:order-2 md:min-h-[540px]">
+        <div class="absolute inset-4 rounded-[46%_46%_18px_18px] bg-[#e8d1bd] md:inset-7"></div>
+        <img class="absolute inset-4 h-[calc(100%-2rem)] w-[calc(100%-2rem)] rounded-[46%_46%_18px_18px] object-cover object-center md:inset-7 md:h-[calc(100%-3.5rem)] md:w-[calc(100%-3.5rem)]" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&amp;fit=crop&amp;w=1100&amp;q=88" alt="Sunlit beauty portrait with a relaxed, vacation-ready glow">
+        <div class="absolute bottom-10 left-0 rounded-2xl border border-white/60 glass p-4 shadow-xl sm:bottom-16 sm:left-0 sm:p-5">
+          <div class="flex items-center gap-3"><span class="grid h-10 w-10 place-items-center rounded-full bg-white text-rose"><i class="fa-solid fa-sun"></i></span><div><p class="font-display text-lg">Pelo's signature glow</p><p class="text-[10px] text-ink/55">Your 5-minute feel-good ritual</p></div></div>
+        </div>
+        <div class="absolute right-0 top-12 grid h-20 w-20 place-items-center rounded-full bg-white/90 text-center shadow-lg sm:right-2 sm:top-16"><span class="font-display text-2xl text-rose">100%<small class="block font-sans text-[8px] uppercase tracking-widest text-ink/60">good energy</small></span></div>
+        <div class="absolute bottom-0 right-4 -z-10 h-32 w-32 rounded-full bg-[#e3e6d8] blur-2xl"></div>
+      </div>
+    </section>
+
+    <section class="border-y border-ink/5 bg-white/50">
+      <div class="mx-auto grid max-w-7xl gap-7 px-5 py-8 md:grid-cols-[.72fr_1.28fr] md:items-center lg:px-10">
+        <div><p class="text-[10px] font-semibold uppercase tracking-[.22em] text-rose">Set the scene</p><h2 class="mt-1 font-display text-2xl">Where are we going?</h2></div>
+        <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <button class="mood-button flex items-center gap-3 rounded-2xl border border-transparent bg-white/70 p-3 text-left transition hover:-translate-y-0.5" data-mood="santorini" aria-pressed="true"><span class="mood-dot grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white"><i class="fa-solid fa-water"></i></span><span><strong class="block text-xs">Santorini Glow</strong><small class="text-[10px] text-ink/55">Dewy &amp; luminous</small></span></button>
+          <button class="mood-button flex items-center gap-3 rounded-2xl border border-transparent bg-white/70 p-3 text-left transition hover:-translate-y-0.5" data-mood="malibu" aria-pressed="false"><span class="mood-dot grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white"><i class="fa-solid fa-umbrella-beach"></i></span><span><strong class="block text-xs">Malibu Bronze</strong><small class="text-[10px] text-ink/55">Sun-kissed &amp; easy</small></span></button>
+          <button class="mood-button flex items-center gap-3 rounded-2xl border border-transparent bg-white/70 p-3 text-left transition hover:-translate-y-0.5" data-mood="paris" aria-pressed="false"><span class="mood-dot grid h-10 w-10 shrink-0 place-items-center rounded-xl text-white"><i class="fa-solid fa-wine-glass"></i></span><span><strong class="block text-xs">Parisian Soft Glam</strong><small class="text-[10px] text-ink/55">Polished &amp; romantic</small></span></button>
+        </div>
+        <p id="mood-note" class="text-xs leading-5 text-ink/60 md:col-start-2">A fresh, light-reflecting base, rosy cheeks, and a soft champagne eye. Think salt air and golden hour.</p>
+      </div>
+    </section>
+
+    <section id="makeup" class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-28">
+      <div class="flex flex-wrap items-end justify-between gap-5">
+        <div><p class="text-[10px] font-semibold uppercase tracking-[.22em] text-rose">Your chair is ready</p><h2 class="mt-2 font-display text-4xl tracking-tight sm:text-5xl">Full Face <span class="italic">Getaway</span></h2><p class="mt-3 max-w-lg text-sm leading-6 text-ink/60">A no-stress, step-by-step routine for your most radiant, you-but-rested face—with easy-to-find Maybelline options.</p></div>
+        <div class="mb-1 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs shadow-sm"><i class="fa-solid fa-bag-shopping text-rose"></i><span>My beauty bag</span><strong id="bag-count" class="rounded-full bg-blush px-2 py-0.5 text-[10px]">0 / 5</strong></div>
+      </div>
+      <div class="mt-10 grid gap-5 lg:grid-cols-[.83fr_1.17fr]">
+        <div class="relative min-h-[400px] overflow-hidden rounded-[28px] bg-[#ead9ca]">
+          <img class="absolute h-full w-full object-cover" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Glowing makeup look in warm natural light">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#211a16]/75 via-transparent to-transparent"></div>
+          <button class="video-open absolute left-1/2 top-1/2 grid h-16 w-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/80 text-rose shadow-xl transition hover:scale-110" data-title="Pelo's 5-minute signature glow" aria-label="Play Pelo's 5-minute signature glow"><i class="fa-solid fa-play ml-1"></i></button>
+          <div class="absolute bottom-0 p-6 text-white sm:p-8"><span class="rounded-full bg-white/20 px-3 py-1 text-[9px] font-semibold uppercase tracking-[.18em] backdrop-blur">The signature look</span><h3 class="mt-3 font-display text-3xl">Soft, sunlit skin</h3><p class="mt-1 text-xs text-white/75">5 steps <span class="mx-2">·</span> 15 minutes <span class="mx-2">·</span> Beginner friendly</p></div>
+        </div>
+        <div class="space-y-2">
+          <div class="guide-step rounded-2xl border border-ink/5 bg-white/70 px-5 py-4" aria-expanded="true">
+            <button class="step-toggle flex w-full items-center gap-4 text-left"><span class="step-number grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush font-display text-sm">01</span><span class="flex-1"><strong class="block text-sm">Prep your canvas</strong><small class="text-[11px] text-ink/55">Hydration is the secret to that vacation glow</small></span><i class="step-chevron fa-solid fa-chevron-down text-xs text-ink/40 transition"></i></button>
+            <div class="step-content pl-[52px] pr-2 pt-3"><p class="text-xs leading-5 text-ink/65">Press a hydrating serum into clean skin, smooth on moisturizer, then give it a minute to sink in. Finish with SPF 30 or higher for an easy, radiant base.</p><p class="mt-2 text-[11px] leading-5 text-ink/60"><strong class="text-rose">Maybelline option:</strong> Fit Me Dewy + Smooth Primer. Use your usual separate sunscreen underneath.</p><label class="mt-3 flex cursor-pointer items-center gap-2 text-xs"><input class="bag-check accent-rose" type="checkbox" data-product="Maybelline Fit Me Dewy + Smooth Primer"> Add Fit Me Dewy + Smooth Primer to my bag</label></div>
+          </div>
+          <div class="guide-step rounded-2xl border border-ink/5 bg-white/70 px-5 py-4" aria-expanded="false">
+            <button class="step-toggle flex w-full items-center gap-4 text-left"><span class="step-number grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush font-display text-sm">02</span><span class="flex-1"><strong class="block text-sm">Find your foundation match</strong><small class="text-[11px] text-ink/55">Sheer, breathable coverage that looks like you</small></span><i class="step-chevron fa-solid fa-chevron-down text-xs text-ink/40 transition"></i></button>
+            <div class="step-content pl-[52px] pr-2 pt-3"><p class="text-xs leading-5 text-ink/65">Test two shades along your jaw in daylight. Choose the one that disappears into both face and neck, then start at the center and blend outward with a damp sponge.</p><p class="mt-2 text-[11px] leading-5 text-ink/60"><strong class="text-rose">Maybelline options:</strong> Fit Me Dewy + Smooth for a more radiant finish, or Fit Me Matte + Poreless for a matte finish. Shade availability varies.</p><label class="mt-3 flex cursor-pointer items-center gap-2 text-xs"><input class="bag-check accent-rose" type="checkbox" data-product="Maybelline Fit Me foundation"> Add a Fit Me foundation to my bag</label></div>
+          </div>
+          <div class="guide-step rounded-2xl border border-ink/5 bg-white/70 px-5 py-4" aria-expanded="false">
+            <button class="step-toggle flex w-full items-center gap-4 text-left"><span class="step-number grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush font-display text-sm">03</span><span class="flex-1"><strong class="block text-sm">Sculpt, don't stripe</strong><small class="text-[11px] text-ink/55">A soft bronze moment, never a contour crisis</small></span><i class="step-chevron fa-solid fa-chevron-down text-xs text-ink/40 transition"></i></button>
+            <div class="step-content pl-[52px] pr-2 pt-3"><p class="text-xs leading-5 text-ink/65">Tap cream bronzer where the sun naturally hits—temples, upper cheekbones, and a touch across the nose. Blend up and back for a lifted, diffused finish.</p><p class="mt-2 text-[11px] leading-5 text-ink/60"><strong class="text-rose">Maybelline option:</strong> Sunkisser blush for a warm, sun-kissed flush.</p><label class="mt-3 flex cursor-pointer items-center gap-2 text-xs"><input class="bag-check accent-rose" type="checkbox" data-product="Maybelline Sunkisser blush"> Add Sunkisser blush to my bag</label></div>
+          </div>
+          <div class="guide-step rounded-2xl border border-ink/5 bg-white/70 px-5 py-4" aria-expanded="false">
+            <button class="step-toggle flex w-full items-center gap-4 text-left"><span class="step-number grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush font-display text-sm">04</span><span class="flex-1"><strong class="block text-sm">A little golden-hour eye</strong><small class="text-[11px] text-ink/55">One wash of shimmer. Zero complicated blending.</small></span><i class="step-chevron fa-solid fa-chevron-down text-xs text-ink/40 transition"></i></button>
+            <div class="step-content pl-[52px] pr-2 pt-3"><p class="text-xs leading-5 text-ink/65">Sweep a warm neutral through the crease with a fluffy brush. Press champagne shimmer onto the lid with a fingertip and finish with mascara.</p><p class="mt-2 text-[11px] leading-5 text-ink/60"><strong class="text-rose">Maybelline options:</strong> The Nudes Eyeshadow Palette and Lash Sensational Sky High mascara.</p><label class="mt-3 flex cursor-pointer items-center gap-2 text-xs"><input class="bag-check accent-rose" type="checkbox" data-product="Maybelline The Nudes Palette and Sky High Mascara"> Add palette + Sky High mascara to my bag</label></div>
+          </div>
+          <div class="guide-step rounded-2xl border border-ink/5 bg-white/70 px-5 py-4" aria-expanded="false">
+            <button class="step-toggle flex w-full items-center gap-4 text-left"><span class="step-number grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush font-display text-sm">05</span><span class="flex-1"><strong class="block text-sm">Set it &amp; let it glow</strong><small class="text-[11px] text-ink/55">Lock in the look without losing your dew</small></span><i class="step-chevron fa-solid fa-chevron-down text-xs text-ink/40 transition"></i></button>
+            <div class="step-content pl-[52px] pr-2 pt-3"><p class="text-xs leading-5 text-ink/65">Dust a whisper of powder only where you crease, sweep on cream blush, then mist setting spray from arm's length. Your skin should still look like skin.</p><p class="mt-2 text-[11px] leading-5 text-ink/60"><strong class="text-rose">Maybelline option:</strong> Lifter Gloss for a comfortable, glossy lip to finish your look.</p><label class="mt-3 flex cursor-pointer items-center gap-2 text-xs"><input class="bag-check accent-rose" type="checkbox" data-product="Maybelline Lifter Gloss"> Add Lifter Gloss to my bag</label></div>
+          </div>
+          <p class="mt-5 text-[10px] leading-5 text-ink/50">Maybelline product suggestions are examples, not a sponsorship or live stock check. Products, shades, and availability vary by region; choose what suits your skin and check current product details with the retailer.</p>
+          <a class="mt-2 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-rose hover:text-ink" href="https://www.maybelline.com/" target="_blank" rel="noopener noreferrer">Explore Maybelline <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <div class="mt-5 rounded-2xl border border-ink/5 bg-white/80 p-5 sm:p-6">
+            <div class="flex flex-wrap items-end justify-between gap-3"><div><p class="text-[9px] font-semibold uppercase tracking-[.18em] text-rose">Plan your beauty bag</p><h3 class="mt-1 font-display text-2xl">Maybelline price guide</h3></div><span class="rounded-full bg-blush px-3 py-1.5 text-[9px] font-semibold uppercase tracking-wider text-ink/65">Estimates · USD</span></div>
+            <div class="mt-4 grid gap-x-8 sm:grid-cols-2">
+              <div class="flex items-center justify-between border-b border-ink/5 py-2.5 text-xs"><span>Fit Me foundation</span><strong>$8–$12</strong></div>
+              <div class="flex items-center justify-between border-b border-ink/5 py-2.5 text-xs"><span>Fit Me Dewy + Smooth Primer</span><strong>$8–$12</strong></div>
+              <div class="flex items-center justify-between border-b border-ink/5 py-2.5 text-xs"><span>Sunkisser blush</span><strong>$10–$14</strong></div>
+              <div class="flex items-center justify-between border-b border-ink/5 py-2.5 text-xs"><span>The Nudes Eyeshadow Palette</span><strong>$10–$14</strong></div>
+              <div class="flex items-center justify-between border-b border-ink/5 py-2.5 text-xs"><span>Lash Sensational Sky High Mascara</span><strong>$10–$14</strong></div>
+              <div class="flex items-center justify-between border-b border-ink/5 py-2.5 text-xs"><span>Lifter Gloss</span><strong>$10–$14</strong></div>
+              <div class="flex items-center justify-between border-b border-ink/5 py-2.5 text-xs"><span>Instant Age Rewind Concealer</span><strong>$10–$14</strong></div>
+            </div>
+            <p class="mt-3 text-[10px] leading-5 text-ink/50">Approximate U.S. retail price ranges, not live prices. Retailer promotions, size, and location can change the price; SPF is a separate step and isn't included in these estimates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hair" class="mood-surface border-y border-ink/5">
+      <div class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
+        <div class="grid items-center gap-12 lg:grid-cols-[.88fr_1.12fr]">
+          <div>
+            <p class="text-[10px] font-semibold uppercase tracking-[.22em] text-rose">Your crown, your rules</p>
+            <h2 class="mt-2 font-display text-4xl tracking-tight sm:text-5xl">The Crown <span class="italic">&amp; Melt</span></h2>
+            <p class="mt-4 max-w-lg text-sm leading-6 text-ink/65">A patient, beginner-friendly frontal masterclass—from lace prep to that seamless, skin-like finish. Good hair days, meet carry-on life.</p>
+            <div class="mt-7 space-y-3">
+              <div class="flex items-start gap-3"><span class="mt-0.5 text-rose"><i class="fa-solid fa-check"></i></span><p class="text-xs leading-5"><strong>Prep &amp; customize:</strong> tint the lace, gently pluck, and test your fit before install.</p></div>
+              <div class="flex items-start gap-3"><span class="mt-0.5 text-rose"><i class="fa-solid fa-check"></i></span><p class="text-xs leading-5"><strong>Apply with intention:</strong> patch-test adhesive, work in thin layers, and let each layer turn tacky.</p></div>
+              <div class="flex items-start gap-3"><span class="mt-0.5 text-rose"><i class="fa-solid fa-check"></i></span><p class="text-xs leading-5"><strong>Finish the melt:</strong> secure with a wrap, style your part, and keep a gentle remover handy.</p></div>
+            </div>
+            <button class="video-open mt-8 rounded-full bg-ink px-6 py-4 text-[10px] font-semibold uppercase tracking-[.14em] text-white transition hover:bg-rose" data-title="The beginner's frontal melt masterclass">Watch the masterclass <i class="fa-solid fa-play ml-3"></i></button>
+          </div>
+          <div class="grid grid-cols-2 gap-3 sm:gap-4">
+            <article class="col-span-2 overflow-hidden rounded-[24px] border border-white/80 bg-white/80 shadow-lg">
+              <img class="h-56 w-full object-cover object-center sm:h-72" src="https://images.pexels.com/photos/6923413/pexels-photo-6923413.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Black woman positioning a wig over her wig cap as part of her install">
+              <div class="p-4 sm:flex sm:items-end sm:justify-between sm:gap-6 sm:p-6">
+                <div><p class="text-[9px] font-semibold uppercase tracking-[.18em] text-rose">Frontal install · fit &amp; placement</p><h3 class="mt-1 font-display text-2xl">A good melt starts with a good fit.</h3><p class="mt-2 max-w-xl text-xs leading-5 text-ink/60">See a Black woman positioning her wig over a wig cap, then follow the guide to customize your lace, check placement, and secure your frontal gently.</p></div>
+                <a class="mt-3 inline-flex shrink-0 items-center gap-1 text-[9px] font-semibold uppercase tracking-widest text-rose hover:text-ink sm:mt-0" href="https://www.pexels.com/photo/a-woman-putting-a-wig-6923413/" target="_blank" rel="noopener noreferrer">Photo by RDNE Stock project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+              </div>
+            </article>
+            <article class="group relative mt-8 overflow-hidden rounded-[24px] bg-white p-2 shadow-lg transition hover:-translate-y-1 sm:mt-12"><img class="h-52 w-full rounded-[18px] object-cover sm:h-64" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=600&amp;q=85" alt="Soft cascading curls hairstyle"><div class="px-3 pb-3 pt-4"><p class="text-[9px] font-semibold uppercase tracking-[.16em] text-rose">01 · Soft &amp; romantic</p><h3 class="mt-1 font-display text-xl">Cascading curls</h3><p class="mt-1 text-[10px] text-ink/55">Curl away from the face, brush out softly.</p></div></article>
+            <article class="group relative overflow-hidden rounded-[24px] bg-white p-2 shadow-lg transition hover:-translate-y-1"><img class="h-52 w-full rounded-[18px] object-cover sm:h-64" src="https://images.unsplash.com/photo-1512316609839-ce289d3eba0a?auto=format&amp;fit=crop&amp;w=600&amp;q=85" alt="Sleek polished hairstyle"><div class="px-3 pb-3 pt-4"><p class="text-[9px] font-semibold uppercase tracking-[.16em] text-rose">02 · Clean &amp; classic</p><h3 class="mt-1 font-display text-xl">Bone-straight</h3><p class="mt-1 text-[10px] text-ink/55">Silk press the lengths; let your part shine.</p></div></article>
+            <article class="col-span-2 flex items-center gap-4 rounded-2xl border border-white/80 bg-white/65 p-4 sm:mx-8"><span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-white text-leaf"><i class="fa-solid fa-wind"></i></span><div><p class="font-display text-lg">Beach waves that last</p><p class="text-[10px] leading-4 text-ink/55">Alternate curl direction, cool completely, then finger-comb. A tiny bit of flexible hold is your humidity-day bestie.</p></div><button class="video-open ml-auto grid h-9 w-9 shrink-0 place-items-center rounded-full bg-blush text-rose" data-title="Easy beach waves that last" aria-label="Play Easy beach waves that last"><i class="fa-solid fa-play text-xs"></i></button></article>
+          </div>
+        </div>
+        <div class="mt-14 rounded-2xl border border-leaf/10 bg-white/60 p-5 sm:flex sm:items-center sm:gap-5 sm:px-7"><span class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#e8ebdf] text-leaf"><i class="fa-solid fa-leaf"></i></span><div class="mt-3 sm:mt-0"><p class="font-display text-lg">A little care goes a long way</p><p class="mt-1 text-xs leading-5 text-ink/60">Use lace-safe remover and follow its directions—never pull at the lace. Clean adhesive gently, let the unit dry fully, detangle from ends upward, and store it away from direct sun. Take a break from tension if your scalp feels irritated.</p></div></div>
+      </div>
+    </section>
+
+    <section id="routine" class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
+      <div class="grid overflow-hidden rounded-[30px] bg-ink text-white lg:grid-cols-[.9fr_1.1fr]">
+        <div class="p-7 sm:p-10 lg:p-14"><p class="text-[10px] font-semibold uppercase tracking-[.22em] text-[#e6b09c]">Your plans, perfected</p><h2 class="mt-3 font-display text-4xl leading-tight sm:text-5xl">What does your <span class="italic text-[#e6b09c]">day</span> look like?</h2><p class="mt-4 max-w-sm text-sm leading-6 text-white/60">Pick the occasion. We'll pair your makeup mood with a hair look that goes wherever the day takes you.</p>
+          <form id="routine-form" class="mt-8"><label for="occasion" class="mb-2 block text-[10px] font-semibold uppercase tracking-[.16em] text-white/65">I'm getting ready for</label><div class="flex flex-col gap-3 sm:flex-row"><select id="occasion" class="min-h-12 flex-1 rounded-full border border-white/15 bg-white/10 px-5 text-sm text-white outline-none focus:border-[#e6b09c]"><option class="text-ink" value="brunch">A sunny brunch</option><option class="text-ink" value="beach">A beach day</option><option class="text-ink" value="dinner">A tropical dinner</option><option class="text-ink" value="travel">A travel day</option></select><button class="rounded-full bg-[#e6b09c] px-6 py-3 text-[10px] font-bold uppercase tracking-[.14em] text-ink transition hover:bg-white" type="submit">Make my mood <i class="fa-solid fa-arrow-right ml-2"></i></button></div></form>
+        </div>
+        <div id="routine-result" class="flex min-h-[250px] items-center border-t border-white/10 bg-white/[.04] p-7 sm:p-10 lg:border-l lg:border-t-0 lg:p-14" aria-live="polite"><div><span class="text-[10px] font-semibold uppercase tracking-[.2em] text-[#e6b09c]">Your getaway edit</span><h3 class="mt-3 font-display text-3xl">Your next favorite look is one click away.</h3><p class="mt-3 max-w-md text-sm leading-6 text-white/55">Choose your plans and we'll put together a makeup + hair pairing you'll feel good in.</p></div></div>
+      </div>
+    </section>
+
+    <section id="journal" class="border-t border-ink/5 bg-white/45">
+      <div class="mx-auto max-w-7xl px-5 py-20 lg:px-10 lg:py-24">
+        <div class="flex flex-wrap items-end justify-between gap-5"><div><p class="text-[10px] font-semibold uppercase tracking-[.22em] text-rose">Postcards from the beauty bag</p><h2 class="mt-2 font-display text-4xl sm:text-5xl">The Glam <span class="italic">Journal</span></h2></div><div class="flex gap-2" role="group" aria-label="Filter journal articles"><button class="journal-filter rounded-full border border-ink/10 bg-ink px-4 py-2 text-[10px] font-semibold text-white" data-filter="all">All stories</button><button class="journal-filter rounded-full border border-ink/10 px-4 py-2 text-[10px] font-semibold text-ink/65 transition hover:bg-white" data-filter="makeup">Makeup</button><button class="journal-filter rounded-full border border-ink/10 px-4 py-2 text-[10px] font-semibold text-ink/65 transition hover:bg-white" data-filter="hair">Hair</button></div></div>
+        <div class="mt-9 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="journal-card group overflow-hidden rounded-[22px] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl" data-category="makeup"><div class="relative h-56 overflow-hidden"><img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Effortless travel style in the sunshine"><span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[9px] font-semibold uppercase tracking-widest">Makeup · 4 min read</span></div><div class="p-5"><h3 class="font-display text-xl">The 5-piece travel makeup edit</h3><p class="mt-2 text-xs leading-5 text-ink/60">A tiny beauty bag, a big main-character glow. These are the multitaskers that earn their suitcase space.</p><a class="mt-4 inline-block text-[10px] font-bold uppercase tracking-widest text-rose" href="#makeup">Read the story <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article>
+          <article class="journal-card group overflow-hidden rounded-[22px] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl" data-category="hair"><div class="relative h-56 overflow-hidden"><img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Soft, wind-swept hair in warm light"><span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[9px] font-semibold uppercase tracking-widest">Hair · 3 min read</span></div><div class="p-5"><h3 class="font-display text-xl">Humidity called. Your curls are ready.</h3><p class="mt-2 text-xs leading-5 text-ink/60">The cool-down trick, wrap method, and lightweight hold that help your style keep its shape in the tropics.</p><a class="mt-4 inline-block text-[10px] font-bold uppercase tracking-widest text-rose" href="#hair">Read the story <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article>
+          <article class="journal-card group overflow-hidden rounded-[22px] bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl" data-category="makeup"><div class="relative h-56 overflow-hidden"><img class="h-full w-full object-cover transition duration-500 group-hover:scale-105" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Easy, elegant vacation-ready outfit"><span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[9px] font-semibold uppercase tracking-widest">Rituals · 5 min read</span></div><div class="p-5"><h3 class="font-display text-xl">Your airport-to-arrival glow</h3><p class="mt-2 text-xs leading-5 text-ink/60">A skin-first routine for early flights, dry cabin air, and stepping off the plane feeling like yourself.</p><a class="mt-4 inline-block text-[10px] font-bold uppercase tracking-widest text-rose" href="#makeup">Read the story <i class="fa-solid fa-arrow-right ml-1"></i></a></div></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#26221e] text-white">
+    <div class="mx-auto grid max-w-7xl gap-10 px-5 py-12 md:grid-cols-[1fr_auto] md:items-center lg:px-10"><div><a href="#home" class="font-display text-3xl">Pelo's <span class="font-normal text-[#e6b09c]">Beauty</span> Makeover<span class="text-[#e6b09c]">.</span></a><p class="mt-2 text-xs text-white/50">A little getaway, tucked into your everyday.</p></div><div class="flex flex-wrap gap-x-6 gap-y-3 text-xs text-white/65"><a class="hover:text-white" href="#makeup">Makeup guides</a><a class="hover:text-white" href="#hair">Hair studio</a><a class="hover:text-white" href="#journal">The journal</a><a class="hover:text-white" href="#routine">Routine builder</a></div></div>
+    <div class="border-t border-white/10 px-5 py-4 text-center text-[10px] text-white/40">Made for your every day, and every getaway. <span class="mx-1 text-[#e6b09c]">✳</span> Remember your SPF.</div>
+  </footer>
+
+  <div id="video-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/70 p-5 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="relative w-full max-w-lg rounded-[28px] bg-sand p-7 shadow-2xl sm:p-10"><button id="modal-close" class="absolute right-5 top-5 grid h-9 w-9 place-items-center rounded-full bg-white" aria-label="Close dialog"><i class="fa-solid fa-xmark"></i></button><div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-blush text-rose"><i class="fa-solid fa-play ml-1"></i></div><p class="mt-5 text-center text-[9px] font-semibold uppercase tracking-[.2em] text-rose">A little preview</p><h2 id="modal-title" class="mt-2 text-center font-display text-3xl">Your tutorial</h2><p class="mt-3 text-center text-sm leading-6 text-ink/60">Your step-by-step guide is ready. Follow along at your own pace, pause whenever you need, and make the look your own.</p><a id="modal-cta" href="#makeup" class="mx-auto mt-6 block w-fit rounded-full bg-ink px-6 py-3 text-[10px] font-semibold uppercase tracking-widest text-white">Explore the guide <i class="fa-solid fa-arrow-right ml-2"></i></a></div>
+  </div>
+  <div id="search-modal" class="fixed inset-0 z-50 hidden items-start justify-center bg-ink/60 p-5 pt-[15vh] backdrop-blur-sm" role="dialog" aria-modal="true" aria-label="Search beauty guides">
+    <div class="w-full max-w-xl rounded-[24px] bg-sand p-5 shadow-2xl sm:p-7"><div class="flex items-center gap-3 border-b border-ink/10 pb-4"><i class="fa-solid fa-magnifying-glass text-rose"></i><input id="search-input" class="w-full bg-transparent text-sm outline-none" type="search" placeholder="Try “beach waves” or “glowy skin”" aria-label="Search guides and articles"><button id="search-close" class="grid h-8 w-8 place-items-center rounded-full bg-white" aria-label="Close search"><i class="fa-solid fa-xmark"></i></button></div><div id="search-results" class="mt-4 space-y-1 text-sm"><a class="block rounded-xl p-3 hover:bg-white" href="#makeup">Full Face Getaway <span class="float-right text-xs text-ink/45">Makeup guide</span></a><a class="block rounded-xl p-3 hover:bg-white" href="#hair">The Crown &amp; Melt <span class="float-right text-xs text-ink/45">Frontal &amp; styling</span></a><a class="block rounded-xl p-3 hover:bg-white" href="#journal">The Glam Journal <span class="float-right text-xs text-ink/45">Travel beauty</span></a></div></div>
+  </div>
+
+  <script>
+    const moods = {
+      santorini: { label: "Santorini Glow", accent: "#c58c79", soft: "#f2e2d8", ink: "#744f43", note: "A fresh, light-reflecting base, rosy cheeks, and a soft champagne eye. Think salt air and golden hour.", finish: "Finish with rosy cream blush and a champagne shimmer." },
+      malibu: { label: "Malibu Bronze", accent: "#bd875e", soft: "#f4e6d3", ink: "#765333", note: "Warm bronze, a peachy flush, and undone beach waves. Sun-kissed, low-fuss, and ready for wherever.", finish: "Finish with warm bronzer, peach blush, and a glossy lip." },
+      paris: { label: "Parisian Soft Glam", accent: "#a96f78", soft: "#f0e1e3", ink: "#70474f", note: "A softly sculpted complexion, fluttery lashes, and a blurred rose lip. Effortless, romantic, always chic.", finish: "Finish with softly sculpted cheeks, fluttery lashes, and a rose lip." }
+    };
+    let activeMood = "santorini";
+    document.querySelectorAll(".mood-button").forEach((button) => button.addEventListener("click", () => {
+      const mood = moods[button.dataset.mood];
+      activeMood = button.dataset.mood;
+      document.documentElement.style.setProperty("--accent", mood.accent);
+      document.documentElement.style.setProperty("--accent-soft", mood.soft);
+      document.documentElement.style.setProperty("--mood-ink", mood.ink);
+      document.querySelectorAll(".mood-button").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      document.getElementById("mood-note").textContent = mood.note;
+    }));
+
+    document.querySelectorAll(".step-toggle").forEach((button) => button.addEventListener("click", () => {
+      const step = button.closest(".guide-step");
+      step.setAttribute("aria-expanded", String(step.getAttribute("aria-expanded") !== "true"));
+    }));
+
+    const checks = [...document.querySelectorAll(".bag-check")];
+    const bagCount = document.getElementById("bag-count");
+    const savedBag = JSON.parse(localStorage.getItem("pelosBeautyBag") || localStorage.getItem("solSundayBag") || "[]");
+    checks.forEach((check) => {
+      check.checked = savedBag.includes(check.dataset.product);
+      check.addEventListener("change", () => {
+        const selected = checks.filter((item) => item.checked).map((item) => item.dataset.product);
+        localStorage.setItem("pelosBeautyBag", JSON.stringify(selected));
+        localStorage.removeItem("solSundayBag");
+        bagCount.textContent = `${selected.length} / ${checks.length}`;
+      });
+    });
+    bagCount.textContent = `${checks.filter((item) => item.checked).length} / ${checks.length}`;
+
+    const recommendations = {
+      brunch: { title: "The long-lunch glow", makeup: "Dewy skin, soft peach blush, and a champagne wash on the lids.", products: "Try Maybelline Fit Me Dewy + Smooth foundation, Sunkisser blush, and The Nudes palette.", price: "$28–$40 estimated for the listed Maybelline products.", hair: "Loose cascading curls, brushed out for that effortless just-stepped-out feeling." },
+      beach: { title: "Salt-air, no-fuss", makeup: "Tinted SPF, cream bronzer, waterproof mascara, and a juicy lip balm.", products: "Try a Fit Me foundation shade that suits your finish, waterproof Lash Sensational mascara, and Lifter Gloss. Wear separate broad-spectrum SPF.", price: "$28–$40 estimated for the listed Maybelline products; sunscreen not included.", hair: "Loose beach waves or a low, easy bun. Keep lace protected from water and re-secure only with products made for your install." },
+      dinner: { title: "Golden-hour dinner", makeup: "A softly sculpted base, warm shimmer, a touch more liner, and a rose lip.", products: "Try Fit Me Matte + Poreless foundation, The Nudes palette, Sky High mascara, and Lifter Gloss.", price: "$38–$54 estimated for the listed Maybelline products.", hair: "Sleek middle part with tucked-behind-the-ear shine." },
+      travel: { title: "The airport-to-arrival edit", makeup: "Moisturizer, SPF, spot concealer, brushed brows, and cream blush.", products: "Try Fit Me foundation, Instant Age Rewind concealer, Sunkisser blush, and Lifter Gloss. Keep your sunscreen as a separate step.", price: "$38–$54 estimated for the listed Maybelline products; sunscreen not included.", hair: "A loose braid or soft low bun; pack a satin scarf to protect your style." }
+    };
+    document.getElementById("routine-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const look = recommendations[document.getElementById("occasion").value];
+      const mood = moods[activeMood];
+      document.getElementById("routine-result").innerHTML = `<div class="fade-in"><span class="text-[10px] font-semibold uppercase tracking-[.2em] text-[#e6b09c]">Your ${mood.label} edit</span><h3 class="mt-2 font-display text-3xl">${look.title}</h3><p class="mt-4 text-xs font-semibold uppercase tracking-widest text-white/45">Makeup</p><p class="mt-1 text-sm leading-6 text-white/75">${look.makeup}</p><p class="mt-2 text-sm leading-6 text-white/75">${mood.finish}</p><p class="mt-3 text-xs font-semibold uppercase tracking-widest text-white/45">Maybelline product ideas</p><p class="mt-1 text-sm leading-6 text-white/75">${look.products}</p><p class="mt-2 text-sm font-semibold text-[#e6b09c]">${look.price}</p><p class="mt-1 text-[10px] leading-5 text-white/45">Approximate U.S. estimates; actual prices and shade availability vary by retailer and region.</p><p class="mt-3 text-xs font-semibold uppercase tracking-widest text-white/45">Hair</p><p class="mt-1 text-sm leading-6 text-white/75">${look.hair}</p><a href="#makeup" class="mt-5 inline-block text-[10px] font-bold uppercase tracking-widest text-[#e6b09c]">Explore your guides <i class="fa-solid fa-arrow-right ml-1"></i></a></div>`;
+    });
+
+    document.querySelectorAll(".journal-filter").forEach((button) => button.addEventListener("click", () => {
+      document.querySelectorAll(".journal-filter").forEach((item) => {
+        item.classList.remove("bg-ink", "text-white");
+        item.classList.add("text-ink/65");
+      });
+      button.classList.add("bg-ink", "text-white");
+      button.classList.remove("text-ink/65");
+      document.querySelectorAll(".journal-card").forEach((card) => {
+        card.classList.toggle("hidden", button.dataset.filter !== "all" && card.dataset.category !== button.dataset.filter);
+      });
+    }));
+
+    const videoModal = document.getElementById("video-modal");
+    document.querySelectorAll(".video-open").forEach((button) => button.addEventListener("click", () => {
+      document.getElementById("modal-title").textContent = button.dataset.title;
+      document.getElementById("modal-cta").href = button.dataset.title.includes("frontal") ? "#hair" : "#makeup";
+      videoModal.classList.remove("hidden");
+      videoModal.classList.add("flex");
+      document.getElementById("modal-close").focus();
+    }));
+    const closeVideoModal = () => { videoModal.classList.add("hidden"); videoModal.classList.remove("flex"); };
+    document.getElementById("modal-close").addEventListener("click", closeVideoModal);
+    videoModal.addEventListener("click", (event) => { if (event.target === videoModal) closeVideoModal(); });
+
+    const searchModal = document.getElementById("search-modal");
+    const searchInput = document.getElementById("search-input");
+    const searchResults = [...document.querySelectorAll("#search-results a")];
+    const openSearch = () => { searchModal.classList.remove("hidden"); searchModal.classList.add("flex"); searchInput.focus(); };
+    const closeSearch = () => { searchModal.classList.add("hidden"); searchModal.classList.remove("flex"); };
+    document.getElementById("search-open").addEventListener("click", openSearch);
+    document.getElementById("search-close").addEventListener("click", closeSearch);
+    searchModal.addEventListener("click", (event) => { if (event.target === searchModal) closeSearch(); });
+    searchInput.addEventListener("input", () => searchResults.forEach((link) => link.classList.toggle("hidden", !link.textContent.toLowerCase().includes(searchInput.value.trim().toLowerCase()))));
+    searchResults.forEach((link) => link.addEventListener("click", closeSearch));
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
+    menuToggle.addEventListener("click", () => {
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+      mobileNav.classList.toggle("hidden", expanded);
+    });
+    mobileNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+      mobileNav.classList.add("hidden");
+      menuToggle.setAttribute("aria-expanded", "false");
+    }));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") { closeVideoModal(); closeSearch(); }
+    });
+  </script>
+</body>
+</html>
